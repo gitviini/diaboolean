@@ -25,17 +25,20 @@ func _process(_delta: float) -> void:
 	
 	if(can_typing and text_len > 0):
 		# -- TYPING EFFECT --
-		dialog_label.text = text.left(index)
+		dialog_label.text = text.left(index) + "|"
 		can_typing = false
 		index += 1
 		typing_timer.start()
+	elif(text_len == 0):
+		# remove line
+		dialog_label.text = text
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body.name == "player"):
 		# -- IF PLAYER ENTERED --
 		# reset text and show box
-		dialog_label.text = ""
+		dialog_label.text = "|"
 		is_body_entered = true
 		index = 0
 		typing_timer.start()
