@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://cfbvjnsydhysw"]
+[gd_scene load_steps=8 format=4 uid="uid://cfbvjnsydhysw"]
 
+[ext_resource type="PackedScene" uid="uid://drvuc2nfwseyr" path="res://src/hud/hud.tscn" id="1_36ipd"]
 [ext_resource type="PackedScene" uid="uid://donc0rd61u7td" path="res://src/player/player.tscn" id="1_tp5op"]
 [ext_resource type="PackedScene" uid="uid://boghnd5u54akn" path="res://src/door/door.tscn" id="2_0qwtu"]
 [ext_resource type="Texture2D" uid="uid://dqaswa36xebyd" path="res://assets/map/tilemap.png" id="2_xlegt"]
@@ -53,15 +54,17 @@ sources/0 = SubResource("TileSetAtlasSource_0qwtu")
 [node name="world" type="Node2D"]
 y_sort_enabled = true
 
+[node name="HUD" parent="." instance=ExtResource("1_36ipd")]
+
 [node name="player" parent="." instance=ExtResource("1_tp5op")]
 z_index = 1
-position = Vector2(3, 1)
+position = Vector2(3, 18)
 
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="plate" parent="Node2D" instance=ExtResource("4_t101k")]
-position = Vector2(44, -52)
+position = Vector2(4, -2)
 text = "Esse é o mundo de diaboolean."
 
 [node name="Area2D" parent="Node2D" instance=ExtResource("2_0qwtu")]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://b5nyvted8tblf"]
+[gd_scene load_steps=8 format=4 uid="uid://b5nyvted8tblf"]
 
 [ext_resource type="Script" uid="uid://haoiepdbgval" path="res://src/plate/plate.gd" id="1_qe775"]
 [ext_resource type="Texture2D" uid="uid://bodxw8vwjhm1n" path="res://assets/plate/plate.png" id="2_bgxfn"]
+[ext_resource type="FontFile" uid="uid://b6kt7bkmug1le" path="res://assets/font/pixelade/PIXELADE.TTF" id="3_bgxfn"]
 [ext_resource type="Texture2D" uid="uid://dnohw0entmaee" path="res://assets/dialog_box/borders.png" id="3_c6vly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tl5jy"]
@@ -44,8 +45,9 @@ offset_top = -21.0
 offset_right = 188.99998
 offset_bottom = 28.999996
 scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("3_bgxfn")
+theme_override_font_sizes/font_size = 22
 autowrap_mode = 1
-text_overrun_behavior = 5
 
 [node name="TileMapLayer" type="TileMapLayer" parent="dialog_box"]
 tile_map_data = PackedByteArray("AAD9//v/AgAAAAAAAAD9//z/AgAAAAAAAAD9//3/AgAAAAEAAAACAPv/AgAAAAAAABACAPz/AgAAAAAAABACAP3/AgAAAAEAABD9//r/AgAAAAEAACD+//r/AgABAAAAAAD+//3/AgABAAAAADD///r/AgABAAAAAAD///3/AgABAAAAADAAAPr/AgABAAAAAAAAAP3/AgABAAAAADABAPr/AgABAAAAAAABAP3/AgABAAAAADACAPr/AgAAAAEAADA=")

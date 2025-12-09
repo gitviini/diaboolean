@@ -44,10 +44,6 @@ script = ExtResource("1_ehvfd")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 2)
 zoom = Vector2(5, 5)
-limit_left = -100
-limit_top = -100
-limit_right = 100
-limit_bottom = 100
 limit_smoothed = true
 position_smoothing_enabled = true
 

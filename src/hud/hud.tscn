@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://drvuc2nfwseyr"]
+
+[ext_resource type="Texture2D" uid="uid://cu72trkbe3rv7" path="res://assets/buttons/arrow.png" id="1_3phq6"]
+[ext_resource type="Texture2D" uid="uid://b84qr8bymct5g" path="res://assets/buttons/arrow_press.png" id="2_ony6l"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="mobile_buttons" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.9382716
+anchor_right = 0.034722224
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_bottom = -80.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="left" type="TouchScreenButton" parent="mobile_buttons"]
+position = Vector2(0, -40)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_3phq6")
+texture_pressed = ExtResource("2_ony6l")
+action = "ui_left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="mobile_buttons"]
+position = Vector2(120, 0)
+rotation = 3.1415925
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_3phq6")
+texture_pressed = ExtResource("2_ony6l")
+action = "ui_right"
+visibility_mode = 1
+
+[node name="down" type="TouchScreenButton" parent="mobile_buttons"]
+position = Vector2(40, 40)
+rotation = -1.5707964
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_3phq6")
+texture_pressed = ExtResource("2_ony6l")
+action = "ui_down"
+visibility_mode = 1
+
+[node name="up" type="TouchScreenButton" parent="mobile_buttons"]
+position = Vector2(80, -80)
+rotation = 1.5707964
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_3phq6")
+texture_pressed = ExtResource("2_ony6l")
+action = "ui_up"
+visibility_mode = 1
