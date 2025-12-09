@@ -1,18 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://drvuc2nfwseyr"]
+[gd_scene load_steps=7 format=3 uid="uid://drvuc2nfwseyr"]
 
 [ext_resource type="Texture2D" uid="uid://cu72trkbe3rv7" path="res://assets/buttons/arrow.png" id="1_3phq6"]
 [ext_resource type="Texture2D" uid="uid://b84qr8bymct5g" path="res://assets/buttons/arrow_press.png" id="2_ony6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3phq6"]
+size = Vector2(8, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ony6l"]
+size = Vector2(8, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ej7y"]
+size = Vector2(8, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs14m"]
+size = Vector2(8, 24)
 
 [node name="HUD" type="CanvasLayer"]
 
 [node name="mobile_buttons" type="Control" parent="."]
 layout_mode = 3
-anchor_top = 0.9382716
-anchor_right = 0.034722224
+anchors_preset = 2
+anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 40.0
-offset_bottom = -80.0
+offset_top = -120.0
+offset_right = 40.0
+offset_bottom = -120.0
 grow_vertical = 0
+scale = Vector2(2, 2)
 size_flags_horizontal = 0
 size_flags_vertical = 8
 metadata/_edit_use_anchors_ = true
@@ -22,6 +37,8 @@ position = Vector2(0, -40)
 scale = Vector2(5, 5)
 texture_normal = ExtResource("1_3phq6")
 texture_pressed = ExtResource("2_ony6l")
+shape = SubResource("RectangleShape2D_3phq6")
+passby_press = true
 action = "ui_left"
 visibility_mode = 1
 
@@ -31,6 +48,8 @@ rotation = 3.1415925
 scale = Vector2(5, 5)
 texture_normal = ExtResource("1_3phq6")
 texture_pressed = ExtResource("2_ony6l")
+shape = SubResource("RectangleShape2D_ony6l")
+passby_press = true
 action = "ui_right"
 visibility_mode = 1
 
@@ -40,6 +59,8 @@ rotation = -1.5707964
 scale = Vector2(5, 5)
 texture_normal = ExtResource("1_3phq6")
 texture_pressed = ExtResource("2_ony6l")
+shape = SubResource("RectangleShape2D_8ej7y")
+passby_press = true
 action = "ui_down"
 visibility_mode = 1
 
@@ -49,5 +70,7 @@ rotation = 1.5707964
 scale = Vector2(5, 5)
 texture_normal = ExtResource("1_3phq6")
 texture_pressed = ExtResource("2_ony6l")
+shape = SubResource("RectangleShape2D_cs14m")
+passby_press = true
 action = "ui_up"
 visibility_mode = 1
