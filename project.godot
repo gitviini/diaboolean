@@ -21,6 +21,13 @@ window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
+[gui]
+
+theme/default_font_antialiasing=0
+theme/default_font_subpixel_positioning=0
+theme/default_font_multichannel_signed_distance_field=true
+theme/custom_font="uid://j7gx656hco4p"
+
 [input]
 
 ui_left={

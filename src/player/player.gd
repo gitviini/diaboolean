@@ -3,6 +3,11 @@ extends CharacterBody2D
 const SPEED = 40.0
 const JUMP_VELOCITY = -400.0
 @onready var animation_sprite := $AnimatedSprite2D
+# --- BATTLE CONFIG ---
+@export var battle_mode := false
+const battle_step = 8
+var can_battle_move := true;
+var direction := Vector2.ZERO
 
 func animation():
 	if (velocity.length() > 0):
@@ -18,13 +23,24 @@ func animation():
 
 func _physics_process(_delta: float) -> void:
 	# -- BASIC MOVIMENT --
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	if direction:
-		velocity = direction * SPEED
+	if battle_mode:
+		if can_battle_move:
+			velocity = Vector2.ZERO
+			direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+			can_battle_move = false
+			$Timer.start(0.09)
+			position.x += battle_step * direction.x * 1.75
+			position.y += battle_step * direction.y
 	else:
-		velocity = Vector2.ZERO
-		#velocity.x = move_toward(velocity.x, 0, 500)
-		#velocity.y = move_toward(velocity.y, 0, 500)
+		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		if direction:
+			velocity = direction * SPEED
+		else:
+			velocity = Vector2.ZERO
 		
 	animation()
 	move_and_slide()
+
+
+func _on_timer_timeout() -> void:
+	can_battle_move = true

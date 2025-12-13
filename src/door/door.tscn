@@ -6,19 +6,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwn36"]
 size = Vector2(8, 20)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qo7o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxyai"]
 atlas = ExtResource("2_wj388")
-region = Rect2(24, 0, 8, 8)
+region = Rect2(24, 0, 8, 12)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ks860"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj388"]
 atlas = ExtResource("2_wj388")
-region = Rect2(24, 8, 8, 8)
+region = Rect2(24, 12, 8, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_35vnt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6qo7o")
+"texture": SubResource("AtlasTexture_dxyai")
 }],
 "loop": true,
 "name": &"close",
@@ -26,7 +26,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ks860")
+"texture": SubResource("AtlasTexture_wj388")
 }],
 "loop": true,
 "name": &"open",
@@ -39,12 +39,13 @@ collision_mask = 3
 script = ExtResource("1_dxyai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jwn36")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_35vnt")
-animation = &"open"
+animation = &"close"
 autoplay = "close"
 offset = Vector2(0, 2)
 

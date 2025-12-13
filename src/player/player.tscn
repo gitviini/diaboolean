@@ -1,17 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://donc0rd61u7td"]
+[gd_scene load_steps=11 format=3 uid="uid://donc0rd61u7td"]
 
 [ext_resource type="Script" uid="uid://cn052v7qiwse3" path="res://src/player/player.gd" id="1_ehvfd"]
 [ext_resource type="Texture2D" uid="uid://i0vjyiud1get" path="res://assets/player/player_idle.png" id="1_lowyb"]
 [ext_resource type="Texture2D" uid="uid://b5jv4170whjak" path="res://assets/player/player_walk.png" id="3_bktlc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg28d"]
-size = Vector2(6, 7)
+size = Vector2(6, 4)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_21lrq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f2sf"]
+atlas = ExtResource("1_lowyb")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiejy"]
+atlas = ExtResource("1_lowyb")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o822w"]
+atlas = ExtResource("1_lowyb")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf2ua"]
 atlas = ExtResource("3_bktlc")
 region = Rect2(0, 0, 8, 8)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rq7o7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_244u8"]
 atlas = ExtResource("3_bktlc")
 region = Rect2(8, 0, 8, 8)
 
@@ -19,18 +31,27 @@ region = Rect2(8, 0, 8, 8)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_lowyb")
+"texture": SubResource("AtlasTexture_5f2sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiejy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o822w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiejy")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_21lrq")
+"texture": SubResource("AtlasTexture_mf2ua")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rq7o7")
+"texture": SubResource("AtlasTexture_244u8")
 }],
 "loop": true,
 "name": &"walk",
@@ -44,16 +65,21 @@ script = ExtResource("1_ehvfd")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 2)
 zoom = Vector2(5, 5)
-limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_pg28d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nrj4s")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.21180485
 offset = Vector2(0, 2)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
