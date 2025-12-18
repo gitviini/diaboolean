@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://boghnd5u54akn"]
 
 [ext_resource type="Script" uid="uid://r6j6b70wtf6v" path="res://src/door/door.gd" id="1_dxyai"]
-[ext_resource type="Texture2D" uid="uid://dqaswa36xebyd" path="res://assets/map/tilemap.png" id="2_wj388"]
+[ext_resource type="Texture2D" uid="uid://2pqgc0gyh6b4" path="res://assets/door/door.png" id="2_dxyai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwn36"]
-size = Vector2(8, 20)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dxyai"]
-atlas = ExtResource("2_wj388")
-region = Rect2(24, 0, 8, 12)
+size = Vector2(22, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wj388"]
-atlas = ExtResource("2_wj388")
-region = Rect2(24, 12, 8, 12)
+atlas = ExtResource("2_dxyai")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwn36"]
+atlas = ExtResource("2_dxyai")
+region = Rect2(10, 0, 10, 10)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_35vnt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dxyai")
+"texture": SubResource("AtlasTexture_wj388")
 }],
 "loop": true,
 "name": &"close",
@@ -26,14 +26,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wj388")
+"texture": SubResource("AtlasTexture_jwn36")
 }],
 "loop": true,
 "name": &"open",
 "speed": 5.0
 }]
 
-[node name="Area2D" type="Area2D"]
+[node name="door" type="Area2D"]
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_dxyai")

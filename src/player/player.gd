@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 const SPEED = 40.0
-const JUMP_VELOCITY = -400.0
 @onready var animation_sprite := $AnimatedSprite2D
 # --- BATTLE CONFIG ---
 @export var battle_mode := false
