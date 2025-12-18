@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=4 uid="uid://bh8vdm8g6vba0"]
+
+[ext_resource type="Script" uid="uid://cnfani3wy7gbp" path="res://src/entity/talk_entity.gd" id="1_cctfd"]
+[ext_resource type="Texture2D" uid="uid://dnohw0entmaee" path="res://assets/dialog_box/borders.png" id="2_td2og"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cctfd"]
+size = Vector2(9, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_td2og"]
+size = Vector2(24, 24)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7hhnt"]
+texture = ExtResource("2_td2og")
+texture_region_size = Vector2i(8, 4)
+0:0/next_alternative_id = 4
+0:0/0 = 0
+0:1/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jk4ft"]
+tile_size = Vector2i(8, 4)
+sources/2 = SubResource("TileSetAtlasSource_7hhnt")
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("1_cctfd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_cctfd")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0.5, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_td2og")
+
+[node name="Timer_Animation" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+offset = Vector2(0.5, 2)
+
+[node name="dialog_box" type="Node2D" parent="."]
+visible = false
+z_index = 99
+y_sort_enabled = true
+
+[node name="Label" type="Label" parent="dialog_box"]
+z_index = 1
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 188.99998
+offset_bottom = 28.999996
+scale = Vector2(0.2, 0.2)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="dialog_box"]
+tile_map_data = PackedByteArray("AAD9//v/AgAAAAAAAAD9//z/AgAAAAAAAAD9//3/AgAAAAEAAAACAPv/AgAAAAAAABACAPz/AgAAAAAAABACAP3/AgAAAAEAABD9//r/AgAAAAEAACD+//r/AgABAAAAAAD+//3/AgABAAAAADD///r/AgABAAAAAAD///3/AgABAAAAADAAAPr/AgABAAAAAAAAAP3/AgABAAAAADABAPr/AgABAAAAAAABAP3/AgABAAAAADACAPr/AgAAAAEAADA=")
+tile_set = SubResource("TileSet_jk4ft")
+occlusion_enabled = false
+
+[node name="ColorRect" type="ColorRect" parent="dialog_box"]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = -8.0
+color = Color(0.14117648, 0.14901961, 0.22745098, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer_Animation" to="." method="_on_timer_animation_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

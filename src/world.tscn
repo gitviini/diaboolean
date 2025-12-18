@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://cfbvjnsydhysw"]
+[gd_scene load_steps=10 format=4 uid="uid://cfbvjnsydhysw"]
 
 [ext_resource type="PackedScene" uid="uid://drvuc2nfwseyr" path="res://src/hud/hud.tscn" id="1_36ipd"]
 [ext_resource type="PackedScene" uid="uid://donc0rd61u7td" path="res://src/player/player.tscn" id="1_tp5op"]
 [ext_resource type="PackedScene" uid="uid://boghnd5u54akn" path="res://src/door/door.tscn" id="2_0qwtu"]
 [ext_resource type="Texture2D" uid="uid://dqaswa36xebyd" path="res://assets/map/tilemap.png" id="2_xlegt"]
 [ext_resource type="PackedScene" uid="uid://b5nyvted8tblf" path="res://src/plate/plate.tscn" id="4_t101k"]
+[ext_resource type="PackedScene" uid="uid://bh8vdm8g6vba0" path="res://src/entity/talk_entity.tscn" id="6_usxdn"]
+[ext_resource type="Texture2D" uid="uid://c85omogna3g7v" path="res://assets/teachers/big_lherme/big_lherme.png" id="7_jvefd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36ipd"]
 texture = ExtResource("2_xlegt")
@@ -131,8 +133,14 @@ y_sort_enabled = true
 [node name="HUD" parent="." instance=ExtResource("1_36ipd")]
 
 [node name="player" parent="." instance=ExtResource("1_tp5op")]
-z_index = 1
 position = Vector2(54, 183)
+
+[node name="talk_entity" parent="." instance=ExtResource("6_usxdn")]
+position = Vector2(23, 162)
+text = "Eae galego! Tudo bem?"
+sprite_resource = ExtResource("7_jvefd")
+vframes = 1
+hframes = 2
 
 [node name="Node2D" type="Node2D" parent="."]
 y_sort_enabled = true

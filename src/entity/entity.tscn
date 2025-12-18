@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://u84f5y4dl1jx"]
+
+[ext_resource type="Texture2D" uid="uid://c85omogna3g7v" path="res://assets/teachers/big_lherme/big_lherme.png" id="1_gbh6w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrrsu"]
+atlas = ExtResource("1_gbh6w")
+region = Rect2(0, 0, 11, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y50xi"]
+atlas = ExtResource("1_gbh6w")
+region = Rect2(11, 0, 11, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxbyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrrsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y50xi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbh6w"]
+size = Vector2(9, 8)
+
+[node name="entity" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hxbyj")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.04386451
+offset = Vector2(0.5, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_gbh6w")
