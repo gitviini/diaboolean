@@ -53,3 +53,7 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	can_typing = true
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print(area)

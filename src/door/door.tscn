@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://2pqgc0gyh6b4" path="res://assets/door/door.png" id="2_dxyai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwn36"]
-size = Vector2(22, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wj388"]
 atlas = ExtResource("2_dxyai")
@@ -43,6 +42,7 @@ position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_jwn36")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_35vnt")
 animation = &"close"
