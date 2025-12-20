@@ -1,6 +1,6 @@
 <div align="center">
 
-![example](example.png)
+![example](image.png)
 
 <p>Diaboolean</p>
 
