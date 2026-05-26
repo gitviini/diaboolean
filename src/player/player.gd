@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 40.0
+const SPEED = 50.0
 @onready var animation_player := $AnimationPlayer
 @onready var logic_effect := $logic_effect
 @onready var collision_logic = $collision_logic

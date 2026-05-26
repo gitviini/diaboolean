@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1yd2e4h6gnx1"]
+[gd_scene format=3 uid="uid://c1yd2e4h6gnx1"]
 
 [ext_resource type="Script" uid="uid://dsvr05ax0xehy" path="res://src/grid_battle/cell/cell.gd" id="1_3w2pr"]
-[ext_resource type="Texture2D" uid="uid://dqaswa36xebyd" path="res://assets/map/tilemap.png" id="2_kil4g"]
+[ext_resource type="Texture2D" uid="uid://dqaswa36xebyd" path="res://assets/map/old/tilemap_old1.png" id="2_kil4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ij61"]
 size = Vector2(8, 8)

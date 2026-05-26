@@ -74,12 +74,10 @@ func negation_handle(_name: String) -> void:
 	
 	if(_name == "left"):
 		var value = negation_logic(left.get("logic_value"))
-		print(value)
 		right.set("logic_value", value)
 	if(_name == "right"):
-		print(right)
-		#var value = negation_logic(right.get("logic_value"))
-		#left.set("logic_value", value)
+		var value = negation_logic(right.get("logic_value"))
+		left.set("logic_value", value)
 	
 	left.set_logic_value()
 	right.set_logic_value()
@@ -95,3 +93,19 @@ func negation_logic(value : String) -> String:
 		_:
 			pass
 	return _value;
+
+func condition_handle(_name:String) -> void:
+	var top = around_logic_values["top"]
+	var right = around_logic_values["right"]
+	var bottom = around_logic_values["bottom"]
+	var left = around_logic_values["left"]
+	
+	if(_name == "left"):
+		var value = negation_logic(left.get("logic_value"))
+		right.set("logic_value", value)
+	if(_name == "right"):
+		var value = negation_logic(right.get("logic_value"))
+		left.set("logic_value", value)
+	
+	left.set_logic_value()
+	right.set_logic_value()
