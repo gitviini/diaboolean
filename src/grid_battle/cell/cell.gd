@@ -41,7 +41,7 @@ func _on_cell_area_entered(area: Area2D) -> void:
 	if(area.name == "collision_logic" and area.get("logic_value") and not $logic_simbol.visible):
 		logic_value = area.logic_value
 		sprite.modulate = logic_colors.get(logic_value)
-		$ColorRect.color = background_colors["focus" if logic_value == "reset" else "focus_logic"]
+		$ColorRect.color = background_colors["focus" if logic_value == "reset" else "reset"]
 		setted_logic_value.emit(name)
 
 func _on_cell_body_entered(body: Node2D) -> void:
@@ -52,10 +52,13 @@ func _on_cell_body_exited(body: Node2D) -> void:
 	if(body.name == "player" and not $logic_simbol.visible):
 		$ColorRect.color = background_colors["reset"]
 
-# --- LOGIC HANDLERS ---
+#	===========================
+#		HANDLEs and LOGICs
+#	===========================
+
 func set_logic_value() -> void:
 	sprite.modulate = logic_colors.get(logic_value)
-	$ColorRect.color = background_colors["focus" if logic_value == "reset" else "focus_logic"]
+	#$ColorRect.color = background_colors["focus" if logic_value == "reset" else "focus_logic"]
 
 func call_logic_handle(_name: String) -> void:
 	if(not $logic_simbol.visible):
@@ -64,10 +67,6 @@ func call_logic_handle(_name: String) -> void:
 	match (logic_operator):
 		"negation":
 			negation_handle(_name)
-
-#	===========================
-#		HANDLEs and LOGICs
-#	===========================
 
 func negation_handle(_name: String) -> void:
 	var left = around_logic_values["left"]
