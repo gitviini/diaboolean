@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctaps6qhxdhfh"]
+[gd_scene format=3 uid="uid://ctaps6qhxdhfh"]
 
 [ext_resource type="Script" uid="uid://dsvr05ax0xehy" path="res://src/grid_battle/cell/cell.gd" id="1_318he"]
 [ext_resource type="Texture2D" uid="uid://wmlwqdkb6y0q" path="res://assets/battlegrid/cell/cell.png" id="2_318he"]
@@ -120,48 +120,46 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ij61"]
 
-[node name="cell" type="RigidBody2D"]
+[node name="cell" type="RigidBody2D" unique_id=42262262]
 gravity_scale = 0.0
 script = ExtResource("1_318he")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1244799103]
 root_node = NodePath("../logic_simbol")
-libraries = {
-&"": SubResource("AnimationLibrary_br425")
-}
-autoplay = "value"
+libraries/ = SubResource("AnimationLibrary_br425")
+autoplay = &"value"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=281039816]
 light_mask = 5
 visibility_layer = 5
 position = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_0ij61")
 disabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=325144142]
 texture = ExtResource("2_318he")
 offset = Vector2(10, 12.5)
 hframes = 2
 frame = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1346091647]
 offset_right = 20.0
 offset_bottom = 20.0
 color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="logic_simbol" type="Sprite2D" parent="."]
+[node name="logic_simbol" type="Sprite2D" parent="." unique_id=551895121]
 visible = false
 position = Vector2(10, 5)
 texture = ExtResource("3_qjmd4")
 hframes = 2
 
-[node name="cell_area" type="Area2D" parent="."]
+[node name="cell_area" type="Area2D" parent="." unique_id=88353207]
 z_index = 1
 collision_layer = 5
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cell_area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cell_area" unique_id=394918285]
 light_mask = 5
 visibility_layer = 5
 position = Vector2(10, 10)

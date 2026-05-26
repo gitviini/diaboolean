@@ -4,7 +4,7 @@ signal setted_logic_value(_name: String)
 @export var logic_operator : String = ""
 @onready var sprite := $Sprite2D
 @export var logic_value = "reset"
-@export var around_logic_values : Array[RigidBody2D] = []
+@export var around_logic_values : Dictionary[String, RigidBody2D] = {}
 const logic_operator_simbols = {
 	"condition":0,
 	"negation":1
@@ -27,7 +27,7 @@ func _ready() -> void:
 		$AnimationPlayer.play("simbol")
 		z_index = 1
 		$logic_simbol.frame = logic_operator_simbols.get(logic_operator)
-		for around_logic in around_logic_values:
+		for around_logic in around_logic_values.values():
 			around_logic.setted_logic_value.connect(call_logic_handle)
 		return
 	z_index = 0
@@ -65,14 +65,34 @@ func call_logic_handle(_name: String) -> void:
 		"negation":
 			negation_handle(_name)
 
+#	===========================
+#		HANDLEs and LOGICs
+#	===========================
+
 func negation_handle(_name: String) -> void:
-	var left = around_logic_values[0]
-	var right = around_logic_values[1]
+	var left = around_logic_values["left"]
+	var right = around_logic_values["right"]
 	
-	if(_name == "left" and left.logic_value != "reset"):
-		right.set("logic_value", "true" if left.logic_value == "false" else "false")
-	if(_name == "right" and right.logic_value != "reset"):
-		left.set("logic_value", "true" if right.logic_value == "false" else "false")
+	if(_name == "left"):
+		var value = negation_logic(left.get("logic_value"))
+		print(value)
+		right.set("logic_value", value)
+	if(_name == "right"):
+		print(right)
+		#var value = negation_logic(right.get("logic_value"))
+		#left.set("logic_value", value)
 	
 	left.set_logic_value()
 	right.set_logic_value()
+
+func negation_logic(value : String) -> String:
+	var _value = "reset"
+	
+	match (value):
+		"true":
+			_value = "false"
+		"false":
+			_value = "true"
+		_:
+			pass
+	return _value;

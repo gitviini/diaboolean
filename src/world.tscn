@@ -116,7 +116,10 @@ position = Vector2(30, -190)
 [node name="negation" parent="Node2D" unique_id=1775084999 node_paths=PackedStringArray("around_logic_values") instance=ExtResource("9_dotkg")]
 position = Vector2(50, -190)
 logic_operator = "negation"
-around_logic_values = [NodePath("../left"), NodePath("../right")]
+around_logic_values = {
+"left": NodePath("../left"),
+"right": NodePath("../right")
+}
 
 [node name="Node2D2" type="Node2D" parent="Node2D" unique_id=405584726]
 y_sort_enabled = true
