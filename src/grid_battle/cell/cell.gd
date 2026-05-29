@@ -61,12 +61,15 @@ func set_logic_value() -> void:
 	#$ColorRect.color = background_colors["focus" if logic_value == "reset" else "focus_logic"]
 
 func call_logic_handle(_name: String) -> void:
+	print(logic_operator)
 	if(not $logic_simbol.visible):
 		return
 	
 	match (logic_operator):
 		"negation":
 			negation_handle(_name)
+		"condition":
+			condition_handle(_name)
 
 func negation_handle(_name: String) -> void:
 	var left = around_logic_values["left"]
@@ -95,17 +98,31 @@ func negation_logic(value : String) -> String:
 	return _value;
 
 func condition_handle(_name:String) -> void:
-	var top = around_logic_values["top"]
-	var right = around_logic_values["right"]
-	var bottom = around_logic_values["bottom"]
-	var left = around_logic_values["left"]
+	var top = around_logic_values.get("top")
+	var right = around_logic_values.get("right")
+	var bottom = around_logic_values.get("bottom")
+	var left = around_logic_values.get("left")
 	
-	if(_name == "left"):
-		var value = negation_logic(left.get("logic_value"))
+	if((_name == "left" or _name == "right") and left and right):
+		var value = condition_logic(left.get("logic_value"), right.get("logic_value"))
+		bottom.set("logic_value", value)
+		print(value)
+		bottom.set_logic_value()
+	
+	if((_name == "top" or _name == "bottom") and top and bottom):
+		var value = condition_logic(top.get("logic_value"), bottom.get("logic_value"))
 		right.set("logic_value", value)
-	if(_name == "right"):
-		var value = negation_logic(right.get("logic_value"))
-		left.set("logic_value", value)
-	
-	left.set_logic_value()
-	right.set_logic_value()
+		right.set_logic_value()
+		
+func condition_logic(premise: String, conclusion: String) -> String:
+	#único resultado falso (true -> false) = false
+	print(premise, conclusion)
+	if (premise == "true" && conclusion == "false"):
+		return "false"
+
+	#verifica se premise e conclusion são valores lógicos
+	if ((premise == "true" || premise == "false") && (conclusion == "true" || conclusion == "false")):
+		return "true"
+
+	#se não forem valores válidos, retorna nada
+	return "reset"

@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bobpi7vfju4p"]
+[gd_scene format=3 uid="uid://bobpi7vfju4p"]
 
 [ext_resource type="Script" uid="uid://r6j6b70wtf6v" path="res://src/door/door.gd" id="1_tnxvn"]
 [ext_resource type="Texture2D" uid="uid://b7fejnlh7gbik" path="res://assets/door/large_door.png" id="2_6osyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnxvn"]
-size = Vector2(31, 22)
+size = Vector2(32, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tnxvn"]
 atlas = ExtResource("2_6osyk")
@@ -33,17 +33,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="large_door" type="Area2D"]
+[node name="large_door" type="Area2D" unique_id=1670109385]
 z_index = 1
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_tnxvn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1655459401]
 shape = SubResource("RectangleShape2D_tnxvn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=911738743]
 sprite_frames = SubResource("SpriteFrames_6osyk")
 animation = &"close"
 autoplay = "close"
