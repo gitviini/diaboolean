@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c85omogna3g7v" path="res://assets/teachers/big_lherme/big_lherme.png" id="7_jvefd"]
 [ext_resource type="Texture2D" uid="uid://wmlwqdkb6y0q" path="res://assets/battlegrid/cell/cell.png" id="8_53egh"]
 [ext_resource type="PackedScene" uid="uid://ctaps6qhxdhfh" path="res://src/grid_battle/cell/cell.tscn" id="9_dotkg"]
+[ext_resource type="Texture2D" uid="uid://b0p0ukhlrcgg" path="res://assets/persons/canteen_aunt.png" id="12_eemcn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8e6n3"]
 texture = ExtResource("4_tnjnu")
@@ -181,9 +182,16 @@ position = Vector2(11, -220)
 [node name="player" parent="Node2D" unique_id=169895651 instance=ExtResource("1_tp5op")]
 position = Vector2(74, -165)
 
-[node name="talk_entity" parent="Node2D" unique_id=501411965 instance=ExtResource("6_usxdn")]
+[node name="big_lherme" parent="Node2D" unique_id=501411965 instance=ExtResource("6_usxdn")]
 position = Vector2(34, -58)
 text = "Eae galego! Tudo bem?"
 sprite_resource = ExtResource("7_jvefd")
+vframes = 1
+hframes = 2
+
+[node name="canteen_aunt" parent="Node2D" unique_id=1167228062 instance=ExtResource("6_usxdn")]
+position = Vector2(74, -238)
+text = "Bora tomar um cafezinho?"
+sprite_resource = ExtResource("12_eemcn")
 vframes = 1
 hframes = 2
