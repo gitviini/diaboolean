@@ -28,8 +28,10 @@ func _ready() -> void:
 		z_index = 1
 		$logic_simbol.frame = logic_operator_simbols.get(logic_operator)
 		for around_logic in around_logic_values.values():
-			if(!around_logic): continue
-			around_logic.setted_loric_value.connect(call_logic_handle)
+			print(around_logic)
+			if(!around_logic): 
+				continue
+			around_logic.setted_logic_value.connect(call_logic_handle)
 		return
 	z_index = 0
 	$AnimationPlayer.play("value")

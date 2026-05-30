@@ -190,7 +190,6 @@ physics_quadrant_size = 10
 position = Vector2(60, -200)
 logic_operator = "negation"
 around_logic_values = {
-"bottom": NodePath(""),
 "left": NodePath("../left"),
 "right": NodePath("../right")
 }
