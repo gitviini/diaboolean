@@ -3,12 +3,32 @@
 [ext_resource type="PackedScene" uid="uid://drvuc2nfwseyr" path="res://src/hud/hud.tscn" id="1_36ipd"]
 [ext_resource type="PackedScene" uid="uid://donc0rd61u7td" path="res://src/player/player.tscn" id="1_tp5op"]
 [ext_resource type="PackedScene" uid="uid://b5nyvted8tblf" path="res://src/plate/plate.tscn" id="4_t101k"]
+[ext_resource type="Texture2D" uid="uid://fbxo6topoh18" path="res://assets/table/table.png" id="4_tnjnu"]
 [ext_resource type="Texture2D" uid="uid://dsvqhhvwikyqi" path="res://assets/map/tilemap.png" id="5_dotkg"]
 [ext_resource type="PackedScene" uid="uid://bobpi7vfju4p" path="res://src/door/large_door.tscn" id="5_jvefd"]
 [ext_resource type="PackedScene" uid="uid://bh8vdm8g6vba0" path="res://src/entity/talk_entity.tscn" id="6_usxdn"]
+[ext_resource type="Texture2D" uid="uid://cqqd0krohoh2s" path="res://assets/objects/coffee_maker.png" id="7_8e6n3"]
 [ext_resource type="Texture2D" uid="uid://c85omogna3g7v" path="res://assets/teachers/big_lherme/big_lherme.png" id="7_jvefd"]
 [ext_resource type="Texture2D" uid="uid://wmlwqdkb6y0q" path="res://assets/battlegrid/cell/cell.png" id="8_53egh"]
 [ext_resource type="PackedScene" uid="uid://ctaps6qhxdhfh" path="res://src/grid_battle/cell/cell.tscn" id="9_dotkg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8e6n3"]
+texture = ExtResource("4_tnjnu")
+texture_region_size = Vector2i(10, 10)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dotkg"]
 texture = ExtResource("8_53egh")
@@ -65,12 +85,27 @@ texture_region_size = Vector2i(10, 10)
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, -5, 5, -5, 5, 5, -5, 5)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eemcn"]
+texture = ExtResource("7_8e6n3")
+texture_region_size = Vector2i(10, 10)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 6)
+
 [sub_resource type="TileSet" id="TileSet_usxdn"]
 tile_size = Vector2i(10, 10)
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 sources/1 = SubResource("TileSetAtlasSource_dotkg")
 sources/2 = SubResource("TileSetAtlasSource_tnjnu")
+sources/0 = SubResource("TileSetAtlasSource_8e6n3")
+sources/3 = SubResource("TileSetAtlasSource_eemcn")
 
 [node name="world" type="Node2D" unique_id=2084554863]
 
@@ -103,18 +138,27 @@ tile_set = SubResource("TileSet_usxdn")
 rendering_quadrant_size = 10
 physics_quadrant_size = 10
 
-[node name="objects" type="TileMapLayer" parent="Node2D" unique_id=50746468]
+[node name="furniture" type="TileMapLayer" parent="Node2D" unique_id=50746468]
 z_index = 1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAPf/AgAAAAAAAAAAAPj/AgAAAAEAAAAAAPn/AgAAAAEAAAAAAPr/AgAAAAEAAAAAAPv/AgAAAAEAAAAAAPz/AgAAAAEAAAAAAP3/AgAAAAEAAAAAAP7/AgAAAAEAAAAAAP//AgAAAAIAAAABAPD/AgAAAAEAAAABAPH/AgAAAAIAAAABAPf/AgABAAAAAAABAP//AgABAAIAAAACAPH/AgABAAIAAAACAPf/AgABAAAAAAACAP//AgABAAIAAAADAPH/AgABAAIAAAADAPf/AgABAAAAAAADAP//AgABAAIAAAAEAPH/AgACAAMAABAEAPL/AgAAAAEAAAAEAPP/AgAAAAEAAAAEAPT/AgAAAAEAAAAEAPX/AgAAAAEAAAAEAPb/AgAAAAEAAAAEAPf/AgABAAAAAAAEAP//AgABAAIAAAAFAPH/AgABAAMAAAAFAPf/AgABAAMAAAAFAP//AgABAAIAAAAGAP//AgABAAIAAAAHAP//AgABAAIAAAABAOv/AgAAAAEAAAABAOz/AgAAAAEAAAABAO3/AgAAAAEAAAABAO7/AgAAAAEAAAABAO//AgAAAAEAAAAIAPH/AgABAAMAABAIAPf/AgABAAMAABAIAP//AgABAAIAAAAJAPH/AgACAAMAAAAJAPL/AgACAAEAAAAJAPP/AgACAAEAAAAJAPT/AgACAAEAAAAJAPX/AgACAAEAAAAJAPb/AgACAAEAAAAJAPf/AgABAAAAAAAJAP//AgABAAIAAAAKAPH/AgABAAIAAAAKAPf/AgABAAAAAAAKAP//AgABAAIAAAALAPH/AgABAAIAAAALAPf/AgABAAAAAAALAP//AgABAAIAAAAMAPH/AgABAAIAAAAMAPf/AgABAAAAAAAMAP//AgABAAIAAAANAPf/AgACAAAAAAANAPj/AgACAAEAAAANAPn/AgACAAEAAAANAPr/AgACAAEAAAANAPv/AgACAAEAAAANAPz/AgACAAEAAAANAP3/AgACAAEAAAANAP7/AgACAAEAAAANAP//AgACAAIAAAABAOf/AgAAAAAAAAABAOj/AgAAAAEAAAACAOf/AgABAAAAAAADAOf/AgABAAAAAAAEAOf/AgABAAAAAAAFAOf/AgABAAAAAAAGAOf/AgABAAAAAAAHAOf/AgABAAAAAAAIAOf/AgABAAAAAAAJAOf/AgABAAAAAAAKAOf/AgABAAAAAAALAOf/AgABAAAAAAAMAOf/AgADAAEAAAABAOn/AgAAAAEAAAABAOr/AgAAAAEAAAAXAPH/AgACAAIAAAAXAPD/AgACAAEAAAAXAO//AgACAAEAAAAXAO7/AgACAAEAAAAXAO3/AgACAAEAAAAXAOz/AgACAAEAAAAXAOv/AgACAAEAAAAXAOr/AgACAAEAAAAXAOn/AgACAAEAAAAXAOj/AgACAAEAAAAXAOf/AgACAAAAAAANAOf/AgABAAAAAAAOAOf/AgABAAAAAAAPAOf/AgABAAAAAAAQAOf/AgABAAAAAAARAOf/AgABAAAAAAASAOf/AgABAAAAAAATAOf/AgABAAAAAAAUAOf/AgABAAAAAAAVAOf/AgABAAAAAAAWAOf/AgABAAAAAAANAPH/AgABAAIAAAAOAPH/AgABAAIAAAAPAPH/AgABAAIAAAAQAPH/AgABAAIAAAARAPH/AgABAAIAAAASAPH/AgABAAIAAAATAPH/AgABAAIAAAAUAPH/AgABAAIAAAAVAPH/AgABAAIAAAAWAPH/AgABAAIAAAAMAOj/AgADAAIAAAAMAOn/AgADAAIAAAAMAOr/AgADAAIAAAAMAO//AgADAAIAAAAMAPD/AgADAAIAAAAMAOv/AgADAAMAAAAMAO7/AgADAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAPf/AgAAAAAAAAAAAPj/AgAAAAEAAAAAAPn/AgAAAAEAAAAAAPr/AgAAAAEAAAAAAPv/AgAAAAEAAAAAAPz/AgAAAAEAAAAAAP3/AgAAAAEAAAAAAP7/AgAAAAEAAAAAAP//AgAAAAIAAAABAPD/AgAAAAEAAAABAPH/AgAAAAIAAAABAPf/AgABAAAAAAABAP//AgABAAIAAAACAPH/AgABAAIAAAACAPf/AgABAAAAAAACAP//AgABAAIAAAADAPH/AgABAAIAAAADAPf/AgABAAAAAAADAP//AgABAAIAAAAEAPH/AgACAAMAABAEAPL/AgAAAAEAAAAEAPP/AgAAAAEAAAAEAPT/AgAAAAEAAAAEAPX/AgAAAAEAAAAEAPb/AgAAAAEAAAAEAPf/AgABAAAAAAAEAP//AgABAAIAAAAFAPH/AgABAAMAAAAFAPf/AgABAAMAAAAFAP//AgABAAIAAAAGAP//AgABAAIAAAAHAP//AgABAAIAAAABAOv/AgAAAAEAAAABAOz/AgAAAAEAAAABAO3/AgAAAAEAAAABAO7/AgAAAAEAAAABAO//AgAAAAEAAAAIAPH/AgABAAMAABAIAPf/AgABAAMAABAIAP//AgABAAIAAAAJAPH/AgACAAMAAAAJAPL/AgACAAEAAAAJAPP/AgACAAEAAAAJAPT/AgACAAEAAAAJAPX/AgACAAEAAAAJAPb/AgACAAEAAAAJAPf/AgABAAAAAAAJAP//AgABAAIAAAAKAPH/AgABAAIAAAAKAPf/AgABAAAAAAAKAP//AgABAAIAAAALAPH/AgABAAIAAAALAPf/AgABAAAAAAALAP//AgABAAIAAAAMAPH/AgABAAIAAAAMAPf/AgABAAAAAAAMAP//AgABAAIAAAANAPf/AgACAAAAAAANAPj/AgACAAEAAAANAPn/AgACAAEAAAANAPr/AgACAAEAAAANAPv/AgACAAEAAAANAPz/AgACAAEAAAANAP3/AgACAAEAAAANAP7/AgACAAEAAAANAP//AgACAAIAAAABAOf/AgAAAAAAAAABAOj/AgAAAAEAAAACAOf/AgABAAAAAAADAOf/AgABAAAAAAAEAOf/AgABAAAAAAAFAOf/AgABAAAAAAAGAOf/AgABAAAAAAAHAOf/AgABAAAAAAAIAOf/AgABAAAAAAAJAOf/AgABAAAAAAAKAOf/AgABAAAAAAALAOf/AgABAAAAAAAMAOf/AgADAAEAAAABAOn/AgAAAAEAAAABAOr/AgAAAAEAAAAXAPH/AgACAAIAAAAXAPD/AgACAAEAAAAXAO//AgACAAEAAAAXAO7/AgACAAEAAAAXAO3/AgACAAEAAAAXAOz/AgACAAEAAAAXAOv/AgACAAEAAAAXAOr/AgACAAEAAAAXAOn/AgACAAEAAAAXAOj/AgACAAEAAAAXAOf/AgACAAAAAAANAOf/AgABAAAAAAAOAOf/AgABAAAAAAAPAOf/AgABAAAAAAAQAOf/AgABAAAAAAARAOf/AgABAAAAAAASAOf/AgABAAAAAAATAOf/AgABAAAAAAAUAOf/AgABAAAAAAAVAOf/AgABAAAAAAAWAOf/AgABAAAAAAANAPH/AgABAAIAAAAOAPH/AgABAAIAAAAPAPH/AgABAAIAAAAQAPH/AgABAAIAAAARAPH/AgABAAIAAAASAPH/AgABAAIAAAATAPH/AgABAAIAAAAUAPH/AgABAAIAAAAVAPH/AgABAAIAAAAWAPH/AgABAAIAAAAMAOj/AgADAAIAAAAMAOn/AgADAAIAAAAMAOr/AgADAAIAAAAMAO//AgADAAIAAAAMAPD/AgADAAIAAAAMAOv/AgADAAMAAAAMAO7/AgADAAEAAAAEAOn/AAAAAAIAAAAEAOj/AAAAAAEAAAAJAOj/AAAAAAEAAAAJAOn/AAABAAIAAAAHAOn/AAACAAAAABAIAOn/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_usxdn")
 y_sort_origin = 1
 rendering_quadrant_size = 10
 physics_quadrant_size = 10
 
+[node name="objects" type="TileMapLayer" parent="Node2D" unique_id=1128758339]
+z_index = 1
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAIAOn/AwAAAAAAAAA=")
+tile_set = SubResource("TileSet_usxdn")
+y_sort_origin = 2
+rendering_quadrant_size = 10
+physics_quadrant_size = 10
+
 [node name="condition" parent="Node2D" unique_id=376220955 node_paths=PackedStringArray("around_logic_values") instance=ExtResource("9_dotkg")]
 position = Vector2(50, -210)
-logic_operator = "condition"
+logic_operator = "negation"
 around_logic_values = {
 "bottom": NodePath("../bottom"),
 "left": NodePath("../left"),
