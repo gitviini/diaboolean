@@ -216,7 +216,7 @@ vframes = 1
 hframes = 2
 
 [node name="monitor" parent="Node2D" unique_id=1396670176 instance=ExtResource("6_usxdn")]
-position = Vector2(44, -28)
+position = Vector2(94, -168)
 text = "Sou um monitor de PIF"
 sprite_resource = ExtResource("13_5xesp")
 vframes = 1
