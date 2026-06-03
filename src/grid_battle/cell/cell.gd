@@ -24,7 +24,7 @@ const logic_colors = {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if(logic_operator in logic_operator_simbols.keys()):
-		$AnimationPlayer.play("simbol")
+		$AnimationPlayer.play("elevate")
 		z_index = 1
 		$logic_simbol.frame = logic_operator_simbols.get(logic_operator)
 		for around_logic in around_logic_values.values():

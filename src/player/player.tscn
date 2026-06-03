@@ -361,7 +361,7 @@ autoplay = &"idle"
 
 [node name="logic_effect" type="Sprite2D" parent="." unique_id=1398302118]
 visible = false
-position = Vector2(1, 5)
+position = Vector2(2, 5)
 texture = ExtResource("3_mf2ua")
 hframes = 5
 

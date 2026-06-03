@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddcp3uurfhc03"
-path="res://.godot/imported/player_walk.png-f3c34fce4c4303aab7f811036ddbee2b.ctex"
+uid="uid://crvmiaw66j1o1"
+path="res://.godot/imported/flow_mobilize_equipment.png-a24b4fda56107d561c385d3e6514e468.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/player_walk.png"
-dest_files=["res://.godot/imported/player_walk.png-f3c34fce4c4303aab7f811036ddbee2b.ctex"]
+source_file="res://assets/objects/flow_mobilize_equipment.png"
+dest_files=["res://.godot/imported/flow_mobilize_equipment.png-a24b4fda56107d561c385d3e6514e468.ctex"]
 
 [params]
 
