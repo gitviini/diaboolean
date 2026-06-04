@@ -361,14 +361,16 @@ autoplay = &"idle"
 
 [node name="logic_effect" type="Sprite2D" parent="." unique_id=1398302118]
 visible = false
-position = Vector2(2, 5)
+position = Vector2(1, 6)
 texture = ExtResource("3_mf2ua")
+offset = Vector2(0.5, -1)
 hframes = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=845678440]
 position = Vector2(0, -4)
 texture = ExtResource("5_5f2sf")
 offset = Vector2(0.5, 2)
+flip_h = true
 hframes = 4
 vframes = 4
 frame = 1

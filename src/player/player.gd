@@ -34,6 +34,7 @@ func animation():
 			animation_player.play("idle")
 	if (velocity.x != 0):
 		$Sprite2D.flip_h = velocity.x < 0
+		$logic_effect.offset.x = -0.5 if (velocity.x < 0) else 0.5
 	
 func cell_handle() -> void:
 	var action_pressed = [Input.is_action_pressed("r"), Input.is_action_pressed("v"), Input.is_action_pressed("f")]

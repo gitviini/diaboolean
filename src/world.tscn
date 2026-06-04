@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bobpi7vfju4p" path="res://src/door/large_door.tscn" id="5_jvefd"]
 [ext_resource type="PackedScene" uid="uid://bh8vdm8g6vba0" path="res://src/entity/talk_entity.tscn" id="6_usxdn"]
 [ext_resource type="Texture2D" uid="uid://cqqd0krohoh2s" path="res://assets/objects/coffee_maker.png" id="7_8e6n3"]
-[ext_resource type="Texture2D" uid="uid://c85omogna3g7v" path="res://assets/teachers/big_lherme/big_lherme.png" id="7_jvefd"]
 [ext_resource type="Texture2D" uid="uid://wmlwqdkb6y0q" path="res://assets/battlegrid/cell/cell.png" id="8_53egh"]
 [ext_resource type="Texture2D" uid="uid://dm815tkflo0mi" path="res://assets/objects/seats.png" id="8_njovb"]
 [ext_resource type="PackedScene" uid="uid://ctaps6qhxdhfh" path="res://src/grid_battle/cell/cell.tscn" id="9_dotkg"]
@@ -207,13 +206,6 @@ position = Vector2(11, -220)
 
 [node name="player" parent="Node2D" unique_id=169895651 instance=ExtResource("1_tp5op")]
 position = Vector2(74, -165)
-
-[node name="big_lherme" parent="Node2D" unique_id=501411965 instance=ExtResource("6_usxdn")]
-position = Vector2(34, -58)
-text = "Eae galego! Tudo bem?"
-sprite_resource = ExtResource("7_jvefd")
-vframes = 1
-hframes = 2
 
 [node name="monitor" parent="Node2D" unique_id=1396670176 instance=ExtResource("6_usxdn")]
 position = Vector2(94, -168)
