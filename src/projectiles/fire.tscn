@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://dki4xleg8bu00"]
+
+[ext_resource type="Texture2D" uid="uid://dua4rccig2qnl" path="res://assets/attacks/projectiles/fire.png" id="1_6ypq2"]
+[ext_resource type="Script" uid="uid://cmxx2yr6xpxdo" path="res://src/projectiles/fire.gd" id="1_ispoe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ispoe"]
+size = Vector2(15, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ispoe"]
+atlas = ExtResource("1_6ypq2")
+region = Rect2(0, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llnlp"]
+atlas = ExtResource("1_6ypq2")
+region = Rect2(44, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clh4x"]
+atlas = ExtResource("1_6ypq2")
+region = Rect2(88, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ehgt"]
+atlas = ExtResource("1_6ypq2")
+region = Rect2(132, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaxd5"]
+atlas = ExtResource("1_6ypq2")
+region = Rect2(176, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yet83"]
+atlas = ExtResource("1_6ypq2")
+region = Rect2(220, 0, 44, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56mdk"]
+atlas = ExtResource("1_6ypq2")
+region = Rect2(264, 0, 44, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bayu0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ispoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llnlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clh4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ehgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaxd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yet83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56mdk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="Fire" type="Area2D" unique_id=542498905]
+z_index = 1
+script = ExtResource("1_ispoe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1733418757]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ispoe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=604211691]
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_bayu0")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.07648877
+offset = Vector2(-1, -13)
+
+[node name="Timer" type="Timer" parent="." unique_id=287679781]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

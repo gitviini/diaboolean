@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bh8vdm8g6vba0"]
+[gd_scene format=4 uid="uid://bh8vdm8g6vba0"]
 
 [ext_resource type="Script" uid="uid://cnfani3wy7gbp" path="res://src/entity/talk_entity.gd" id="1_cctfd"]
 [ext_resource type="Texture2D" uid="uid://dnohw0entmaee" path="res://assets/dialog_box/borders.png" id="2_td2og"]
@@ -21,37 +21,37 @@ texture_region_size = Vector2i(8, 4)
 tile_size = Vector2i(8, 4)
 sources/2 = SubResource("TileSetAtlasSource_7hhnt")
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=596740335]
 z_index = 1
 script = ExtResource("1_cctfd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=345772473]
 position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_cctfd")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1473459141]
 position = Vector2(0.5, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1134524982]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_td2og")
 
-[node name="Timer_Animation" type="Timer" parent="."]
+[node name="Timer_Animation" type="Timer" parent="." unique_id=467511291]
 wait_time = 0.5
 autostart = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=246242973]
 wait_time = 0.1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=117816803]
 offset = Vector2(0.5, 2)
 
-[node name="dialog_box" type="Node2D" parent="."]
+[node name="dialog_box" type="Node2D" parent="." unique_id=1072920773]
 visible = false
 z_index = 99
 y_sort_enabled = true
 
-[node name="Label" type="Label" parent="dialog_box"]
+[node name="Label" type="Label" parent="dialog_box" unique_id=1332851152]
 z_index = 1
 offset_left = -21.0
 offset_top = -21.0
@@ -61,12 +61,12 @@ scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 16
 autowrap_mode = 1
 
-[node name="TileMapLayer" type="TileMapLayer" parent="dialog_box"]
+[node name="TileMapLayer" type="TileMapLayer" parent="dialog_box" unique_id=266457395]
 tile_map_data = PackedByteArray("AAD9//v/AgAAAAAAAAD9//z/AgAAAAAAAAD9//3/AgAAAAEAAAACAPv/AgAAAAAAABACAPz/AgAAAAAAABACAP3/AgAAAAEAABD9//r/AgAAAAEAACD+//r/AgABAAAAAAD+//3/AgABAAAAADD///r/AgABAAAAAAD///3/AgABAAAAADAAAPr/AgABAAAAAAAAAP3/AgABAAAAADABAPr/AgABAAAAAAABAP3/AgABAAAAADACAPr/AgAAAAEAADA=")
 tile_set = SubResource("TileSet_jk4ft")
 occlusion_enabled = false
 
-[node name="ColorRect" type="ColorRect" parent="dialog_box"]
+[node name="ColorRect" type="ColorRect" parent="dialog_box" unique_id=2074053913]
 offset_left = -24.0
 offset_top = -24.0
 offset_right = 24.0

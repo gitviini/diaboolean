@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://bkecd7rob1x5r"]
+
+[ext_resource type="Script" uid="uid://cd7xn15beyeyp" path="res://src/enemies/tengu/tengu.gd" id="1_ev2rn"]
+[ext_resource type="Texture2D" uid="uid://dolohfkojgb4v" path="res://assets/enemies/tengu/tengu.png" id="2_33nu2"]
+[ext_resource type="PackedScene" uid="uid://dki4xleg8bu00" path="res://src/projectiles/fire.tscn" id="2_di14c"]
+[ext_resource type="Texture2D" uid="uid://bwl1bepxfuphw" path="res://assets/attacks/tengu_fire_warp.png" id="3_33nu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev2rn"]
+size = Vector2(8, 9)
+
+[sub_resource type="Animation" id="Animation_ev2rn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireWarpSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireWarpSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qumj6"]
+resource_name = "attack"
+length = 1.21
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.5, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FireWarpSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.05, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireWarpSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.19),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_33nu2"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_di14c"]
+resource_name = "walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_di14c"]
+_data = {
+&"RESET": SubResource("Animation_ev2rn"),
+&"attack": SubResource("Animation_qumj6"),
+&"idle": SubResource("Animation_33nu2"),
+&"walk": SubResource("Animation_di14c")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33nu2"]
+size = Vector2(75, 75)
+
+[node name="tengu" type="CharacterBody2D" unique_id=1239047910]
+z_index = 1
+motion_mode = 1
+slide_on_ceiling = false
+platform_on_leave = 2
+script = ExtResource("1_ev2rn")
+projectile = ExtResource("2_di14c")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1258062175]
+position = Vector2(1, 2.5)
+shape = SubResource("RectangleShape2D_ev2rn")
+
+[node name="FireWarpSprite2D" type="Sprite2D" parent="." unique_id=2143187692]
+visible = false
+position = Vector2(0.5, 2)
+texture = ExtResource("3_33nu2")
+offset = Vector2(17, -10)
+hframes = 13
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=375073679]
+texture = ExtResource("2_33nu2")
+offset = Vector2(0.5, 2)
+hframes = 4
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1165495245]
+libraries/ = SubResource("AnimationLibrary_di14c")
+autoplay = &"idle"
+
+[node name="Cooldown" type="Timer" parent="." unique_id=852807295]
+wait_time = 1.2
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=615879323]
+wait_time = 1.21
+one_shot = true
+
+[node name="FireStartPoint" type="Marker2D" parent="." unique_id=1874583653]
+position = Vector2(17.5, 2)
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=869572957]
+position = Vector2(0.5, 2)
+
+[node name="DamageCollision" type="CollisionShape2D" parent="DamageArea" unique_id=599692837]
+shape = SubResource("RectangleShape2D_33nu2")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_exited" from="DamageArea" to="." method="_on_damage_area_body_exited"]

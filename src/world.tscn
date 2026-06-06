@@ -11,8 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://wmlwqdkb6y0q" path="res://assets/battlegrid/cell/cell.png" id="8_53egh"]
 [ext_resource type="Texture2D" uid="uid://dm815tkflo0mi" path="res://assets/objects/seats.png" id="8_njovb"]
 [ext_resource type="PackedScene" uid="uid://ctaps6qhxdhfh" path="res://src/grid_battle/cell/cell.tscn" id="9_dotkg"]
+[ext_resource type="PackedScene" uid="uid://bkecd7rob1x5r" path="res://src/enemies/tengu/tengu.tscn" id="11_5xesp"]
 [ext_resource type="Texture2D" uid="uid://b0p0ukhlrcgg" path="res://assets/persons/canteen_aunt.png" id="12_eemcn"]
-[ext_resource type="Texture2D" uid="uid://dolohfkojgb4v" path="res://assets/enemies/tengu/tengu.png" id="13_5xesp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8e6n3"]
 texture = ExtResource("4_tnjnu")
@@ -205,12 +205,15 @@ y_sort_enabled = true
 position = Vector2(11, -220)
 
 [node name="player" parent="Node2D" unique_id=169895651 instance=ExtResource("1_tp5op")]
-position = Vector2(74, -165)
+position = Vector2(114, -192)
+
+[node name="tengu" parent="Node2D" unique_id=1239047910 instance=ExtResource("11_5xesp")]
+position = Vector2(174, -196)
 
 [node name="monitor" parent="Node2D" unique_id=1396670176 instance=ExtResource("6_usxdn")]
-position = Vector2(94, -168)
+position = Vector2(34, -48)
 text = "Sou um monitor de PIF"
-sprite_resource = ExtResource("13_5xesp")
+sprite_resource = ExtResource("12_eemcn")
 vframes = 1
 hframes = 2
 
